@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#092327"
+    tools:context=".ChordRecog_play">
+
+    <View
+        android:id="@+id/HighBar"
+        android:layout_width="433dp"
+        android:layout_height="108dp"
+        android:background="#3891a6 "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/HighBar_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recognize chords!"
+        android:textAlignment="viewStart"
+        android:textColor="#092327"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/HighBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.176"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/HighBar"
+        app:layout_constraintVertical_bias="0.523" />
+
+    <View
+        android:id="@+id/view_currentChord"
+        android:layout_width="349dp"
+        android:layout_height="175dp"
+        android:background="#52a1b2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/HighBar"
+        app:layout_constraintVertical_bias="0.247" />
+
+    <TextView
+        android:id="@+id/text_currentChord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Current Chord:"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/view_currentChord"
+        app:layout_constraintEnd_toEndOf="@+id/view_currentChord"
+        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintStart_toStartOf="@+id/view_currentChord"
+        app:layout_constraintTop_toTopOf="@+id/view_currentChord"
+        app:layout_constraintVertical_bias="0.151" />
+
+    <TextView
+        android:id="@+id/text_currentChordRevealed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="___"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/view_currentChord"
+        app:layout_constraintEnd_toEndOf="@+id/view_currentChord"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/view_currentChord"
+        app:layout_constraintTop_toTopOf="@+id/view_currentChord"
+        app:layout_constraintVertical_bias="0.623" />
+
+    <Button
+        android:id="@+id/button_nextChord"
+        android:layout_width="117dp"
+        android:layout_height="66dp"
+        android:backgroundTint="#833b62"
+        android:text="next"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.857"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_currentChord"
+        app:layout_constraintVertical_bias="0.457" />
+
+    <Button
+        android:id="@+id/button_repeatChord"
+        android:layout_width="117dp"
+        android:layout_height="66dp"
+        android:backgroundTint="#833b62"
+        android:text="repeat "
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_nextChord"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/button_nextChord"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#092327"
+    tools:context=".ChordRecog_settings">
+
+    <View
+        android:id="@+id/HighBar"
+        android:layout_width="433dp"
+        android:layout_height="108dp"
+        android:background="#3891a6 "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/HighBar_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chord recognition settings"
+        android:textAlignment="viewStart"
+        android:textColor="#092327"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/HighBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.176"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/HighBar"
+        app:layout_constraintVertical_bias="0.523" />
+
+    <Switch
+        android:id="@+id/switch_randomScale"
+        android:layout_width="187dp"
+        android:layout_height="58dp"
+        android:text="Random Scale"
+        android:textColor="#fffcfb"
+        android:textSize="20sp"
+        android:thumbTint="#833b62"
+        android:trackTint="#833b62"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.154"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/HighBar"
+        app:layout_constraintVertical_bias="0.093" />
+
+    <Switch
+        android:id="@+id/switch_invertions"
+        android:layout_width="187dp"
+        android:layout_height="58dp"
+        android:text="Invertions"
+        android:textColor="#fffcfb"
+        android:textSize="20sp"
+        android:thumbTint="#833b62"
+        android:trackTint="#833b62"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.156"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch_randomScale"
+        app:layout_constraintVertical_bias="0.037" />
+
+    <Button
+        android:id="@+id/button_play"
+        android:layout_width="138dp"
+        android:layout_height="73dp"
+        android:backgroundTint="#833b62"
+        android:text="PLAY!"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.864"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/HighBar"
+        app:layout_constraintVertical_bias="0.936" />
+</androidx.constraintlayout.widget.ConstraintLayout>
