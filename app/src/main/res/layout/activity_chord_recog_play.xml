@@ -22,7 +22,7 @@
         android:id="@+id/HighBar_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Recognize chords!"
+        android:text="Recognize chord types!"
         android:textAlignment="viewStart"
         android:textColor="#092327"
         android:textSize="24sp"
@@ -62,7 +62,7 @@
         android:id="@+id/text_currentChordRevealed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="___"
+        android:text="&quot;???&quot;"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/view_currentChord"
@@ -92,7 +92,7 @@
         android:layout_width="117dp"
         android:layout_height="66dp"
         android:backgroundTint="#833b62"
-        android:text="repeat "
+        android:text="play chord"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -101,5 +101,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/button_nextChord"
         app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/button_revealChord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="reveal"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_nextChord"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/button_repeatChord"
+        app:layout_constraintTop_toBottomOf="@+id/view_currentChord"
+        app:layout_constraintVertical_bias="0.069" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
