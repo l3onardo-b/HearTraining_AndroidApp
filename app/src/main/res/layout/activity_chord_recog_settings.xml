@@ -38,7 +38,6 @@
         android:id="@+id/switch_invertions"
         android:layout_width="187dp"
         android:layout_height="58dp"
-        android:layout_marginBottom="528dp"
         android:text="Invertions"
         android:textColor="#fffcfb"
         android:textSize="20sp"
@@ -46,10 +45,10 @@
         android:trackTint="#833b62"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.165"
+        app:layout_constraintHorizontal_bias="0.169"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/HighBar"
-        app:layout_constraintVertical_bias="0.945" />
+        app:layout_constraintVertical_bias="0.169" />
 
     <Button
         android:id="@+id/button_play"
@@ -65,4 +64,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/HighBar"
         app:layout_constraintVertical_bias="0.936" />
+
+    <Button
+        android:id="@+id/button_backHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="back"
+        app:layout_constraintBottom_toTopOf="@+id/switch_invertions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/HighBar"
+        app:layout_constraintVertical_bias="0.437" />
 </androidx.constraintlayout.widget.ConstraintLayout>
