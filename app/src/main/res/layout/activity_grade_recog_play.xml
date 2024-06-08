@@ -4,6 +4,165 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#131626"
     tools:context=".GradeRecog_play">
 
+    <View
+        android:id="@+id/HighBar"
+        android:layout_width="433dp"
+        android:layout_height="108dp"
+        android:background="#4d4d80"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/HighBar_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recognize the grades!"
+        android:textAlignment="viewStart"
+        android:textColor=" #ffe6ea"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/HighBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.176"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/HighBar"
+        app:layout_constraintVertical_bias="0.523" />
+
+    <View
+        android:id="@+id/view_currentGrade"
+        android:layout_width="349dp"
+        android:layout_height="175dp"
+        android:background="#4d4d80"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/HighBar"
+        app:layout_constraintVertical_bias="0.27" />
+
+    <TextView
+        android:id="@+id/text_currentGrade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Current Grade:"
+        android:textColor=" #ffe6ea"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/view_currentGrade"
+        app:layout_constraintEnd_toEndOf="@+id/view_currentGrade"
+        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintStart_toStartOf="@+id/view_currentGrade"
+        app:layout_constraintTop_toTopOf="@+id/view_currentGrade"
+        app:layout_constraintVertical_bias="0.729" />
+
+    <TextView
+        android:id="@+id/text_currentScale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Current Scale:"
+        android:textColor=" #ffe6ea"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/view_currentGrade"
+        app:layout_constraintEnd_toEndOf="@+id/view_currentGrade"
+        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintStart_toStartOf="@+id/view_currentGrade"
+        app:layout_constraintTop_toTopOf="@+id/view_currentGrade"
+        app:layout_constraintVertical_bias="0.243" />
+
+    <TextView
+        android:id="@+id/text_currentScaleRevealed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="scale"
+        android:textColor=" #ffe6ea"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/text_currentScale"
+        app:layout_constraintEnd_toEndOf="@+id/view_currentGrade"
+        app:layout_constraintHorizontal_bias="0.299"
+        app:layout_constraintStart_toEndOf="@+id/text_currentScale"
+        app:layout_constraintTop_toTopOf="@+id/text_currentScale"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/text_currentGradeRevealed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="&quot;???&quot;"
+        android:textColor=" #ffe6ea"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/text_currentGrade"
+        app:layout_constraintEnd_toEndOf="@+id/view_currentGrade"
+        app:layout_constraintHorizontal_bias="0.28"
+        app:layout_constraintStart_toEndOf="@+id/text_currentGrade"
+        app:layout_constraintTop_toTopOf="@+id/text_currentGrade"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/button_nextGrade"
+        android:layout_width="117dp"
+        android:layout_height="66dp"
+        android:backgroundTint="#4d4d80"
+        android:text="Next"
+        android:textColor=" #ffe6ea"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.863"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_revealGrade"
+        app:layout_constraintVertical_bias="0.256" />
+
+    <Button
+        android:id="@+id/button_repeatGrade"
+        android:layout_width="117dp"
+        android:layout_height="66dp"
+        android:backgroundTint="#4d4d80"
+        android:text="Play grade"
+        android:textColor=" #ffe6ea"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_nextGrade"
+        app:layout_constraintHorizontal_bias="0.335"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/button_nextGrade"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/button_revealGrade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#4d4d80"
+        android:scaleX="1.25"
+        android:scaleY="1.25"
+        android:text="Reveal"
+        android:textColor=" #ffe6ea"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_nextGrade"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/button_repeatGrade"
+        app:layout_constraintTop_toBottomOf="@+id/view_currentGrade"
+        app:layout_constraintVertical_bias="0.069" />
+
+    <Button
+        android:id="@+id/button_backHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#4d4d80"
+        android:text="Back"
+        android:textColor=" #ffe6ea"
+        app:layout_constraintBottom_toTopOf="@+id/view_currentGrade"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/HighBar"
+        app:layout_constraintVertical_bias="0.168" />
 </androidx.constraintlayout.widget.ConstraintLayout>
