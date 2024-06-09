@@ -34,21 +34,6 @@
         app:layout_constraintTop_toTopOf="@+id/HighBar"
         app:layout_constraintVertical_bias="0.523" />
 
-    <Switch
-        android:id="@+id/switch_invertions"
-        android:layout_width="187dp"
-        android:layout_height="58dp"
-        android:text="Invertions"
-        android:textColor=" #ffe6ea"
-        android:textSize="20sp"
-        android:thumbTint=" #4d4d80"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.169"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/HighBar"
-        app:layout_constraintVertical_bias="0.169" />
-
     <Button
         android:id="@+id/button_play"
         android:layout_width="138dp"
@@ -72,10 +57,10 @@
         android:backgroundTint=" #4d4d80"
         android:text="Back"
         android:textColor=" #ffe6ea"
-        app:layout_constraintBottom_toTopOf="@+id/switch_invertions"
+        app:layout_constraintBottom_toTopOf="@+id/button_play"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.068"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/HighBar"
-        app:layout_constraintVertical_bias="0.437" />
+        app:layout_constraintVertical_bias="0.07" />
 </androidx.constraintlayout.widget.ConstraintLayout>

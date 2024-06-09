@@ -17,6 +17,10 @@ public class GradeRecog_play extends AppCompatActivity {
     Button revealGrade;
     Button nextGrade;
 
+    Button playScalePres;
+
+    Button changeScale;
+
     Button backHome;
 
     TextView gradeText;
@@ -29,6 +33,7 @@ public class GradeRecog_play extends AppCompatActivity {
     Random rand = new Random();
 
     int currentGrade;
+    int currentScale;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +44,8 @@ public class GradeRecog_play extends AppCompatActivity {
         repeatGrade = findViewById(R.id.button_repeatGrade);
         revealGrade = findViewById(R.id.button_revealGrade);
         nextGrade = findViewById(R.id.button_nextGrade);
+        playScalePres = findViewById(R.id.button_playScalePres);
+        changeScale = findViewById(R.id.button_changeScale);
 
         backHome = findViewById(R.id.button_backHome);
 
@@ -46,14 +53,26 @@ public class GradeRecog_play extends AppCompatActivity {
         gradeText.setText("???");
 
         scaleText = findViewById(R.id.text_currentScaleRevealed);
-        scaleText = audioFilesManager
 
         //endregion
 
         audioFilesManager = new AudioFilesManager();
-        if(audioFilesManager.getGrades().size() > 0){
-            currentGrade = rand.nextInt(audioFilesManager.getGrades().size());
+
+        if(audioFilesManager.getScaleManager().getScales().size() > 0){
+            currentScale = rand.nextInt(audioFilesManager.getScaleManager().getScales().size());
+            scaleText.setText(audioFilesManager.getScaleManager().getScales().get(currentScale).getRoot());
+
+            if(audioFilesManager.getScaleManager().getScales().get(currentScale).getGrades().size() > 0){
+                currentGrade = rand.nextInt(audioFilesManager.getScaleManager().getScales().get(currentScale).getGrades().size());
+            }else {
+                currentGrade = -1;
+            }
+
+        }else {
+            currentScale = -1;
         }
+
+
 
         backHome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,11 +82,41 @@ public class GradeRecog_play extends AppCompatActivity {
             }
         });
 
+        changeScale.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(currentScale !=-1){
+                    currentScale = rand.nextInt(audioFilesManager.getScaleManager().getScales().size());
+                    scaleText.setText(audioFilesManager.getScaleManager().getScales().get(currentScale).getRoot());
+
+                    if(audioFilesManager.getScaleManager().getScales().get(currentScale).getGrades().size() > 0){
+                        currentGrade = rand.nextInt(audioFilesManager.getScaleManager().getScales().get(currentScale).getGrades().size());
+                        gradeText.setText("???");
+                    }
+                }
+            }
+        });
+
+        playScalePres.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(currentGrade != -1){
+                    if(audioFilesManager.getScaleManager().getScales().get(currentScale).getScalePresentation() != null){
+                        mediaPlayer = MediaPlayer.create(GradeRecog_play.this, audioFilesManager.getScaleManager().getScales().get(currentScale).getScalePresentation().getId());
+                        if(mediaPlayer.isPlaying()){
+                            mediaPlayer.stop();
+                        }
+                        mediaPlayer.start();
+                    }
+                }
+            }
+        });
+
         repeatGrade.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(audioFilesManager.getGrades().size() > 0){
-                    mediaPlayer = MediaPlayer.create(GradeRecog_play.this, audioFilesManager.getGrades().get(currentGrade).getId());
+                if(currentGrade != -1){
+                    mediaPlayer = MediaPlayer.create(GradeRecog_play.this, audioFilesManager.getScaleManager().getScales().get(currentScale).getGrades().get(currentGrade).getId());
                     if(mediaPlayer.isPlaying()){
                         mediaPlayer.stop();
                     }
@@ -79,8 +128,8 @@ public class GradeRecog_play extends AppCompatActivity {
         revealGrade.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(audioFilesManager.getGrades().size() > 0){
-                    gradeText.setText(audioFilesManager.getGrades().get(currentGrade).getName());
+                if(currentGrade != -1){
+                    gradeText.setText(audioFilesManager.getScaleManager().getScales().get(currentScale).getGrades().get(currentGrade).getName());
                 }
             }
         });
@@ -88,8 +137,8 @@ public class GradeRecog_play extends AppCompatActivity {
         nextGrade.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(audioFilesManager.getGrades().size() > 0){
-                    currentGrade = rand.nextInt(audioFilesManager.getGrades().size());
+                if(currentGrade != -1){
+                    currentGrade = rand.nextInt(audioFilesManager.getScaleManager().getScales().get(currentScale).getGrades().size());
                     gradeText.setText("???");
                 }
             }

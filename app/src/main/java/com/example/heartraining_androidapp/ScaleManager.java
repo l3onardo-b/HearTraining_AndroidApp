@@ -8,30 +8,71 @@ public class ScaleManager {
     private ArrayList<Scale> scales;
 
     public ScaleManager(){
-
+        scales = new ArrayList<Scale>();
+        populateScales();
     }
 
-    private void populateScales(){
+
+    public ArrayList<Scale> getScales() {
+        return scales;
+    }
+
+    public void populateScales(){
         ArrayList<String> rawNames = listRawName();
         ArrayList<Integer> rawIds = listRawID();
 
         for (int i = 0; i < rawNames.size(); i++){
+            String rootRic = Character.toString(rawNames.get(i).toCharArray()[1]);
+
+            if(rawNames.get(i).toCharArray()[2] != 'n'){
+                if(rawNames.get(i).toCharArray()[2] == 's'){
+                    rootRic += '#';
+                }else {
+                    rootRic += (rawNames.get(i).toCharArray()[2]);
+                }
+            }
+
             if ((rawNames.get(i).toCharArray())[0] == 'g') {
-                //ricerca esistenza scala
+                int pos = searchScaleRoot(rootRic);
                 //se presente aggiungi grado
-                //altrimenti crea scala
+                if(pos != -1){
+                    scales.get(pos).getGrades().add(new AudioFile(rawIds.get(i), rawNames.get(i)));
+                }else{ //altrimenti crea scala
+                    scales.add(new Scale(rootRic, null));
+                    scales.get(scales.size()-1).getGrades().add(new AudioFile(rawIds.get(i), rawNames.get(i)));
+                    //aggiungi grado a scala
+                }
+
             } else if((rawNames.get(i).toCharArray())[0] == 's'){
-                //ricerca esistenza scala
-                //se presente aggiungi presentazione scala
-                //Altrimenti crea scala
+
+                AudioFile scalePres = new AudioFile(rawIds.get(i), rawNames.get(i));
+
+                int pos = searchScaleRoot(rootRic);
+                //se presente aggiungi grado
+                if(pos != -1){
+                    scales.get(pos).setScalePresentation(scalePres);
+                }else{ //altrimenti crea scala
+                    scales.add(new Scale(rootRic, scalePres));
+                }
             }
         }
     }
 
 
+    private int searchScaleRoot(String rootRic){
+        int pos = -1;
+        int i = 0;
 
+        while(pos == -1 && i < scales.size()){
+            if(scales.get(i).getRoot().equals(rootRic)){
+                pos = i;
+            }
+            i++;
+        }
+        return pos;
+    }
 
-    public ArrayList<Integer> listRawID(){
+    private ArrayList<Integer> listRawID(){
         ArrayList<Integer> chordsID = new ArrayList<>();
         Field[] fields=R.raw.class.getFields();
         for(int i = 0; i < fields.length; i++){
@@ -44,7 +85,7 @@ public class ScaleManager {
         return chordsID;
     }
 
-    public ArrayList<String> listRawName(){
+    private ArrayList<String> listRawName(){
         ArrayList<String> chordsName = new ArrayList<>();
         Field[] fields=R.raw.class.getFields();
         for(int i = 0; i < fields.length; i++){

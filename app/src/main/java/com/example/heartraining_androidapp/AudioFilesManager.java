@@ -6,12 +6,12 @@ import java.util.ArrayList;
 public class AudioFilesManager {
 
     private ArrayList<AudioFile> chords;
-
+    private ScaleManager scaleManager;
 
 
     public AudioFilesManager(){
         chords = new ArrayList<AudioFile>();
-
+        scaleManager = new ScaleManager();
 
         populateArrays();
     }
@@ -20,6 +20,10 @@ public class AudioFilesManager {
 
     public ArrayList<AudioFile> getChords() {
         return chords;
+    }
+
+    public ScaleManager getScaleManager() {
+        return scaleManager;
     }
 
     //endregion
@@ -34,10 +38,6 @@ public class AudioFilesManager {
         for (int i = 0; i < rawNames.size(); i++){
             if((rawNames.get(i).toCharArray())[0] == 'c'){
                 chords.add(new AudioFile(rawIds.get(i), rawNames.get(i)));
-            } else if ((rawNames.get(i).toCharArray())[0] == 'g') {
-
-            } else if((rawNames.get(i).toCharArray())[0] == 's'){
-
             }
         }
     }
